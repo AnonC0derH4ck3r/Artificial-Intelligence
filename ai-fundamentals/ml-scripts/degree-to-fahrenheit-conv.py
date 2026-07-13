@@ -1,9 +1,52 @@
+# Here we aren't following any programming rules
+# Such as Fahrenheit = Celsius * 1.8 + 32
+# We are just giving AI the examples and asking to figure the
+# rule out itself.
+
 import numpy as np
 from sklearn.linear_model import LinearRegression
 
 # 1. Training Data (Celsius to Fahrenheit)
+# This is like a Teacher (The Data)
+# The computer learns through this data, rather than we writing a rule it follows.
+# in this case, we want the computer to convert the celsius to fahrenheit
+# instead of we giving the rule Fahrenheit = Celsius * 1.8 + 32
+# we give these data-sets, and asks the computer to figure the rule itself.
+
+# python3
+# Python 3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)] on win32
+# Type "help", "copyright", "credits" or "license" for more information.
+# >>> Fahrenheit = Celsius * 1.8 + 32
+# KeyboardInterrupt
+# >>> def c_to_f(celsius):
+# ...     return celsius * 1.8 + 32
+# ...
+# >>> c_to_f(25)
+# 77.0
+# >>> c_to_f(25)
+# 77.0
+# >>> c_to_f(100)
+# 212.0
+# >>>
+
+# X_train contains the questions (Celsius temperatures).
 X_train = np.array([-40, -10, 0, 8, 15, 22, 38]).reshape(-1, 1)
+
+# Y_train contains the correct answers (Fahrenheit temperatures).
 Y_train = np.array([-40, 14, 32, 46.4, 59, 71.6, 100.4])
+
+
+# using .reshape is a way to format data in a way the AI requires
+"""
+[[-40]
+ [-10]
+ [  0]
+ [  8]
+ [ 15]
+ [ 22]
+ [ 38]]
+"""
+print(X_train)
 
 # 2. Initialize and Train the Machine Learning Model
 model = LinearRegression()
