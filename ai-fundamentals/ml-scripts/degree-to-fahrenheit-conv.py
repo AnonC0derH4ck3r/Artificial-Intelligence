@@ -46,10 +46,19 @@ Y_train = np.array([-40, 14, 32, 46.4, 59, 71.6, 100.4])
  [ 22]
  [ 38]]
 """
-print(X_train)
+# print(X_train)
 
 # 2. Initialize and Train the Machine Learning Model
+
+# creates a blank AI "brain"
+# Linear Regression is a type of AI used when the relationship between numbers forms a straight line on a graph.
+# If you plot Celsius vs. Fahrenheit on a graph, it forms a perfect straight line.
 model = LinearRegression()
+
+# .fit is the training phase.
+# The AI looks at your flashcards (X_train and Y_train) over and over again.
+# It notices patterns, like: "When Celsius is 0, Fahrenheit is 32."
+# By the end of this line, the AI has successfully guessed the math formula connecting the two temperatures.
 model.fit(X_train, Y_train)
 
 # 3. Get input from the user
@@ -63,6 +72,9 @@ try:
     new_celsius_value = [[celsius_float]]
 
     # 4. Predict and display the result
+    # The .predict() function is the final exam.
+    # You give the AI a brand new Celsius number it has never seen before.
+    # Using the math formula it figured out during step 3, it instantly calculates and outputs the Fahrenheit answer.
     predicted_fahrenheit = model.predict(new_celsius_value)
     print(f"Predicted Fahrenheit for {celsius_float}°C is {predicted_fahrenheit[0]:.2f}.")
 
